@@ -1,0 +1,20 @@
+#!/usr/bin/env groovy
+
+pipelineJob('build-jenkins-operator-service') {
+    displayName('Build Jenkins Operator Service')
+
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url('https://github.com/SylwiaBrant/pipelines.git')
+                        credentials('jenkins-user')
+                    }
+                    branches('*/master')
+                }
+            }
+            scriptPath('cicd/pipelines/build.jenkins')
+        }
+    }
+}
