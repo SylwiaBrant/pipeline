@@ -8,21 +8,19 @@ podTemplate(label: label,
         ],
         ) {
     node(label) {
-        dir(workdir) {
-            stage('Init') {
-                timeout(time: 3, unit: 'MINUTES') {
-                    checkout scm
-                }
+        stage('Init') {
+            timeout(time: 3, unit: 'MINUTES') {
+                checkout scm
             }
-            stage('Dep') {
-                echo 'Hello from Dep stage'
-            }
-            stage('Test') {
-                echo 'Hello from Test stage'
-            }
-            stage('Build') {
-                echo 'Hello from Build stage'
-            }
+        }
+        stage('Dep') {
+            echo 'Hello from Dep stage'
+        }
+        stage('Test') {
+            echo 'Hello from Test stage'
+        }
+        stage('Build') {
+            echo 'Hello from Build stage'
         }
     }
 }
