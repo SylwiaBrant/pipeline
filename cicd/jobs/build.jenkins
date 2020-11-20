@@ -9,7 +9,7 @@ pipelineJob('build-jenkins-operator-service') {
                 git {
                     remote {
                         url('https://github.com/SylwiaBrant/pipelines.git')
-                        credentials('pipeline')
+                        credentials('Jenkins')
                     }
                     branches('*/master')
                 }
