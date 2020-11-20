@@ -8,8 +8,8 @@ pipelineJob('build-jenkins-operator-service') {
             scm {
                 git {
                     remote {
-                        url('https://github.com/SylwiaBrant/pipelines.git')
-                    //    credentials('jenkins')
+                        url('https://github.com/SylwiaBrant/pipeline.git')
+                       // credentials('jenkins')
                     }
                     branches('*/master')
                 }
