@@ -21,9 +21,9 @@ podTemplate(label: label,
                 timeout(time: 3, unit: 'MINUTES') {
                     checkout scm
                 }
-                container('go') {
-                    sh 'apk --no-cache --update add make git gcc libc-dev'
-                }
+     /*           container('go') {
+                    sh 'apk add --no-cache --update make git gcc libc-dev'
+                }*/
             }
 
             stage('Dep') {
