@@ -22,7 +22,7 @@ podTemplate(label: label,
                     checkout scm
                 }
                 container('go') {
-                    sh 'apk add --no-cache git'
+                    sh 'apk update && add --no-cache git'
                 }
             }
 
