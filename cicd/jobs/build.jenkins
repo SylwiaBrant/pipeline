@@ -1,15 +1,26 @@
 #!/usr/bin/env groovy
 
-pipelineJob('build-jenkins-operator-service') {
-    displayName('Build Jenkins Operator Service')
+pipelineJob('build-jenkins-operator') {
+    displayName('Build jenkins-operator')
+
+    logRotator {
+        numToKeep(10)
+        daysToKeep(30)
+    }
+
+    configure { project ->
+        project / 'properties' / 'org.jenkinsci.plugins.workflow.job.properties.DurabilityHintJobProperty' {
+            hint('PERFORMANCE_OPTIMIZED')
+        }
+    }
 
     definition {
         cpsScm {
             scm {
                 git {
                     remote {
-                        url('https://github.com/SylwiaBrant/pipeline.git')
-                       // credentials('jenkins')
+                        url('https://github.com/jenkinsci/kubernetes-operator.git')
+                        credentials('jenkins-operator')
                     }
                     branches('*/master')
                 }
