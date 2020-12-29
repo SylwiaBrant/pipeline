@@ -12,6 +12,8 @@ podTemplate(label: label,
         ],
         envVars: [
                 envVar(key: 'GOPATH', value: workspace),
+                GO114MODULE(key: 'GO114MODULE', value: 'on'),
+                CGO_ENABLED(key: 'CGO_ENABLED', value: 0),
         ],
         ) {
 
