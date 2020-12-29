@@ -7,8 +7,8 @@ def workdir = "${workspace}/src/github.com/jenkinsci/kubernetes-operator/"
 
 podTemplate(label: label,
         containers: [
-                containerTemplate(name: 'jnlp', image: 'jenkins/inbound-agent:alpine'),
-                containerTemplate(name: 'go', image: 'golang:1-alpine', command: 'cat', ttyEnabled: true),
+                containerTemplate(name: 'jnlp', image: 'jenkins/inbound-agent:4.6-1-alpine'),
+                containerTemplate(name: 'go', image: 'golang:1.13-alpine', command: 'cat', ttyEnabled: true),
         ],
         envVars: [
                 envVar(key: 'GOPATH', value: workspace),
