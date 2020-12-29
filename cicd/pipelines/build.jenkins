@@ -21,6 +21,9 @@ podTemplate(label: label,
                 timeout(time: 3, unit: 'MINUTES') {
                     checkout scm
                 }
+                container('go') {
+                    sh 'apk add --no-cache git'
+                }
             }
 
             stage('Dep') {
