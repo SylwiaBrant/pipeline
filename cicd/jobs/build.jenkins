@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
-pipelineJob('build-jenkins-operator') {
-    displayName('Build jenkins-operator')
+pipelineJob('build-jenkins-operator-from-sys') {
+    displayName('Build jenkins-operator from Sys')
 
     logRotator {
         numToKeep(10)
@@ -19,7 +19,7 @@ pipelineJob('build-jenkins-operator') {
             scm {
                 git {
                     remote {
-                        url('https://github.com/jenkinsci/kubernetes-operator.git')
+                        url('https://github.com/SylwiaBrant/kubernetes-operator.git')
                         credentials('jenkins-operator')
                     }
                     branches('*/master')
